@@ -1,55 +1,65 @@
 # AI Course Assistant for NOUN Students
 
-**Offline-First AI Course Assistant** built for students of the National Open University of Nigeria (NOUN).
+**Offline-First AI Course Assistant** for National Open University of Nigeria (NOUN) students.
 
 ## Problem
 NOUN students study remotely under high data costs and unstable internet. They often wait days for tutor feedback.
 
 ## Solution
-A mobile app that lets students download course materials once (preferably on Wi-Fi). After download they can ask unlimited questions **fully offline**. The AI answers only from the student’s own materials and cites the exact page/section. Questions the AI cannot answer are automatically queued and sent to the tutor when connectivity returns.
+Download course materials once (preferably on Wi-Fi). Ask unlimited questions **fully offline**. The AI answers only from the student’s own materials and cites page/section. Unanswerable questions are queued and auto-sent to the tutor when connectivity returns.
 
-## Key Features (MVP)
+## Current Status (v0.2)
+- Working Expo Router + tab navigation
+- Offline-first Zustand store (persisted)
+- Download flow with realistic processing simulation
+- Offline RAG skeleton with grounded answers + citations
+- Tutor Queue fully wired (questions the AI cannot answer are saved)
+- SQLite schema ready for production offline storage
+- Designed for Android 8+ / low-end devices
+
+## Key Features
 - Offline-first architecture
-- Download course materials (PDF + text)
-- Local chunking + embeddings + retrieval (RAG)
+- Download course materials
+- Local chunking + retrieval (RAG)
 - Grounded answers with citations
-- Tutor follow-up queue (offline → auto-submit when online)
-- Designed for low-end Android devices (Android 8+, 2GB RAM)
+- Tutor follow-up queue
 - Clear data usage indicators
 
 ## Tech Stack
-- **Framework**: React Native + Expo (SDK 52+)
-- **Navigation**: Expo Router
-- **Local DB**: expo-sqlite
-- **State**: Zustand
-- **UI**: NativeWind + React Native Paper
-- **Offline RAG**: Local embeddings + SQLite vector search (Phase 1) → small on-device LLM (Phase 2)
+- React Native + Expo (SDK 52+)
+- Expo Router
+- expo-sqlite
+- Zustand + AsyncStorage
+- NativeWind + React Native Paper
 
 ## Getting Started
 
 ```bash
+git clone https://github.com/mabrig1/AI-Course-Assistant.git
+cd AI-Course-Assistant
 npm install
 npx expo start
 ```
 
 ## Project Structure
 ```
-app/                  # Expo Router screens
-components/           # Reusable UI components
+app/                  # Screens (Expo Router)
+components/           # UI components (coming)
 lib/
-  db.ts               # SQLite setup
+  db.ts               # SQLite
   rag/                # Offline RAG pipeline
-  sync/               # Moodle + queue logic
-stores/               # Zustand stores
-types/                # TypeScript types
+  sync/               # Queue + future Moodle
+stores/               # Zustand
+types/
 ```
 
 ## Roadmap
-- **MVP**: Offline RAG + download manager + tutor queue
-- **Phase 2**: On-device small LLM, full Moodle Web Services, admin dashboard
+- **v0.3**: Real PDF text extraction + local embeddings
+- **v0.4**: Moodle Web Services layer
+- **Phase 2**: On-device small LLM + Admin dashboard
 
 ## License
-MIT (or as agreed with NOUN partnership)
+MIT (open for NOUN partnership discussion)
 
 ---
 Built for Nigerian students. Privacy-first. Offline by design.
