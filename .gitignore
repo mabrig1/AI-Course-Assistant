@@ -1,0 +1,30 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+
+# typescript
+*.tsbuildinfo
+
+# env
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
